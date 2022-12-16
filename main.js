@@ -59,14 +59,15 @@ function getRandomNumber(array) {
 
 function getRandomQuote() {
     event.preventDefault();
-    favoriteBtn.classList.remove('hidden')
     favoriteBtn.classList.add("color");
     if (affirmation.checked) {
         currentMessage = affirmations[getRandomNumber(affirmations)];
+        favoriteBtn.classList.remove('hidden')
         mantraBox.innerHTML = "";
         mantraBox.innerHTML = `<p>${currentMessage}</p>`;
     } else if (mantra.checked) {
         currentMessage = mantras[getRandomNumber(mantras)];
+        favoriteBtn.classList.remove('hidden')
         mantraBox.innerHTML = "";
         mantraBox.innerHTML = `<p>${currentMessage}</p>`;
     };
