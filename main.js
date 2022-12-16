@@ -31,3 +31,25 @@ var mantras = [
     "Onward and upward.",
     "I am the sky, the rest is weather."
 ]
+
+var affirmation = document.querySelector("#affirmation");
+var mantra = document.querySelector("#mantra");
+var receiveButton = document.querySelector("#submit");
+var mantraBox = document.querySelector(".mantra-box");
+
+receiveButton.addEventListener('click', getRandomQuote)
+
+function getRandomNumber(array) {
+    return Math.floor(Math.random() * array.length)
+}
+
+function getRandomQuote() {
+    event.preventDefault()
+    if (affirmation.checked) {
+        mantraBox.innerHTML = ""
+        mantraBox.innerHTML = `<p>${affirmations[getRandomNumber(affirmations)]}</p>`
+    } else if (mantra.checked) {
+        mantraBox.innerHTML = ""
+        mantraBox.innerHTML = `<p>${mantras[getRandomNumber(mantras)]}</p>`
+    }
+}
