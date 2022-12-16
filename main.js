@@ -43,6 +43,7 @@ var favoritesPageBtn = document.querySelector(".favorites-page");
 var favoriteBtn = document.querySelector('.favorite-button');
 var favoritesPage = document.querySelector(".favorites");
 var mainPage = document.querySelector('.main');
+var favList = document.querySelectorAll('.fav-list');
 
 var currentMessage;
 
@@ -50,6 +51,7 @@ receiveButton.addEventListener('click', getRandomQuote);
 favoriteBtn.addEventListener('click', favoriteMessage);
 favoritesPageBtn.addEventListener('click', showFavorites);
 homeButton.addEventListener('click', goHome);
+favoritesPage.addEventListener('dblclick', removeFav);
 
 function getRandomNumber(array) {
     return Math.floor(Math.random() * array.length);
@@ -58,6 +60,7 @@ function getRandomNumber(array) {
 function getRandomQuote() {
     event.preventDefault();
     favoriteBtn.classList.remove('hidden')
+    favoriteBtn.classList.add("color");
     if (affirmation.checked) {
         currentMessage = affirmations[getRandomNumber(affirmations)];
         mantraBox.innerHTML = "";
@@ -70,9 +73,10 @@ function getRandomQuote() {
 };
 
 function favoriteMessage() {
+    favoriteBtn.classList.remove("color");
     if (!favorites.includes(currentMessage)) {
         favorites.push(currentMessage);
-    };
+    }
 };
 
 function showFavorites() {
@@ -82,13 +86,24 @@ function showFavorites() {
     homeButton.classList.remove("hidden");
     favoritesPage.innerHTML = "";
     for (i = 0; i < favorites.length; i++) {
-        favoritesPage.innerHTML += `<p>${favorites[i]}</p>`;
+        favoritesPage.innerHTML += `<p class="fav-list" id="${i}">${favorites[i]}</p>`;
     };
 };
 
 function goHome() {
+    favoritesPage.innerHTML = '';
     favoritesPage.classList.add('hidden');
     favoritesPageBtn.classList.remove('hidden');
     mainPage.classList.remove("hidden");
     homeButton.classList.add("hidden");
+}
+
+function removeFav(e) {
+    var target = e.target
+    target.remove()
+    for (i = 0; i < favorites.length; i++) {
+        if(target.innerText === favorites[i]) {
+            favorites.splice(i, 1)
+        }
+    };
 }
