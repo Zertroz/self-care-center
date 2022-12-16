@@ -32,24 +32,63 @@ var mantras = [
     "I am the sky, the rest is weather."
 ]
 
+var favorites = [];
+
 var affirmation = document.querySelector("#affirmation");
 var mantra = document.querySelector("#mantra");
 var receiveButton = document.querySelector("#submit");
-var mantraBox = document.querySelector(".mantra-box");
+var mantraBox = document.querySelector(".shown-message");
+var homeButton = document.querySelector('.home-button');
+var favoritesPageBtn = document.querySelector(".favorites-page");
+var favoriteBtn = document.querySelector('.favorite-button');
+var favoritesPage = document.querySelector(".favorites");
+var mainPage = document.querySelector('.main');
 
-receiveButton.addEventListener('click', getRandomQuote)
+var currentMessage;
+
+receiveButton.addEventListener('click', getRandomQuote);
+favoriteBtn.addEventListener('click', favoriteMessage);
+favoritesPageBtn.addEventListener('click', showFavorites);
+homeButton.addEventListener('click', goHome);
 
 function getRandomNumber(array) {
-    return Math.floor(Math.random() * array.length)
+    return Math.floor(Math.random() * array.length);
 }
 
 function getRandomQuote() {
-    event.preventDefault()
+    event.preventDefault();
+    favoriteBtn.classList.remove('hidden')
     if (affirmation.checked) {
-        mantraBox.innerHTML = ""
-        mantraBox.innerHTML = `<p>${affirmations[getRandomNumber(affirmations)]}</p>`
+        currentMessage = affirmations[getRandomNumber(affirmations)];
+        mantraBox.innerHTML = "";
+        mantraBox.innerHTML = `<p>${currentMessage}</p>`;
     } else if (mantra.checked) {
-        mantraBox.innerHTML = ""
-        mantraBox.innerHTML = `<p>${mantras[getRandomNumber(mantras)]}</p>`
-    }
+        currentMessage = mantras[getRandomNumber(mantras)];
+        mantraBox.innerHTML = "";
+        mantraBox.innerHTML = `<p>${currentMessage}</p>`;
+    };
+};
+
+function favoriteMessage() {
+    if (!favorites.includes(currentMessage)) {
+        favorites.push(currentMessage);
+    };
+};
+
+function showFavorites() {
+    favoritesPage.classList.remove('hidden');
+    favoritesPageBtn.classList.add('hidden');
+    mainPage.classList.add("hidden");
+    homeButton.classList.remove("hidden");
+    favoritesPage.innerHTML = "";
+    for (i = 0; i < favorites.length; i++) {
+        favoritesPage.innerHTML += `<p>${favorites[i]}</p>`;
+    };
+};
+
+function goHome() {
+    favoritesPage.classList.add('hidden');
+    favoritesPageBtn.classList.remove('hidden');
+    mainPage.classList.remove("hidden");
+    homeButton.classList.add("hidden");
 }

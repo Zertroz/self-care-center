@@ -8,9 +8,11 @@
   <body>
     <header>
       <h1>✨Self Care Center✨</h1>
+      <button class="home-button hidden">Home</button>
+      <button class="favorites-page">View Favorites</button>
     </header>
-    <h2>Which type of message?</h2>
     <section class="main">
+      <h2>Which type of message?</h2>
       <form>
         <div class="radio-button">
           <div class="affirmation">
@@ -25,9 +27,15 @@
         <br>
         <input id="submit" type="submit" value="Receive Message">
       </form>
-      <div class="mantra-box">
-        <img src="./assets/meditate.svg">
-      </div>
+      <section class="mantra-box">
+        <button class="favorite-button hidden">⭐️</button>
+        <div class="shown-message">
+          <img src="./assets/meditate.svg">
+        </div>
+      </section>
+    </section>
+    <section class="favorites hidden">
+      <p>You haven't favorited anything yet!</p>
     </section>
     <script type="text/javascript" src="main.js"></script>
   </body>
