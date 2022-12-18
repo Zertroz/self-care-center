@@ -30,22 +30,22 @@ ______________________________________________________
 # Self-Care Center 
 
 ### Abstract:
-[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+The website allows users to randomly generate affirmations or mantras with the click of a button. Users can then save those messages to a list of favorites. Those favorites can then be deleted with a double click.
 
 ### Installation Instructions:
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+Simply clone down and open the index.html
 
 ### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+Star emoji changes from grey when unfavorited, to yellow if favorited.
 
 ### Context:
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+This project took only a few hours of work time, with the majority of that time spent on the CSS styling.
 
 ### Contributors:
-[//]: <> (Who worked on this application? Link to their GitHubs.)
+Just me.
 
 ### Learning Goals:
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
+This taught me a lot about CSS and HTML. This was my first time really working with either, and it took some time to get it to a place I liked.
 
 ### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+The star emoji pictured above was something small, but getting it to work made me immensely happy. Also, the initial functionality of the website--that is, generating random messages--didn't take me very long and was clear to me the whole way through. As for challenges, the biggest was CSS. It simply took some time and experimentation before I was able to get things where I wanted them to be.
